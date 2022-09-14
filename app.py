@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def login():
   if request.method=="POST":
-    if request.form['username']!=admin or request.form['password']!=admin:
+    if request.form['username']!=admin and request.form['password']!=admin:
       return render_template('login.html', info="Bad Credentials!")
     else:
       return render_template('index.html')
