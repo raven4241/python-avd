@@ -3,11 +3,11 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def login():
   return render_template('login.html')
   if request.method=="POST":
-    if request.form['username']!=user1 and request.form['password']!=pass1:
+    if request.form['username']!=admin or request.form['password']!=admin:
       return render_template('login.html', info="Bad Credentials!")
     else:
       return render_template('index.html')
