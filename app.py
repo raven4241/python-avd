@@ -13,12 +13,12 @@ def index():
             session['user'] = request.form['username']
             return redirect(url_for('protected'))
  
-    return render_template('index.html')
+    return render_template('login.html')
  
 @app.route('/protected')
 def protected():
     if g.user:
-        return render_template('protected.html')
+        return render_template('index.html')
  
     return redirect(url_for('index'))
  
