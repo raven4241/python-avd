@@ -8,8 +8,8 @@ def login():
   if request.method=='POST':
     usr = request.form["username"]
     pwd = request.form["password"]
-    user = {"admin:password", "user:user1"}
-    if usr not in user and pwd not in user:
+    users = {"admin:password", "user:user1"}
+    if usr not in users and pwd not in users:
       return render_template('login.html', info = 'Bad Credentials')
       
     else:
