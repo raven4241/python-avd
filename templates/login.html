@@ -1,19 +1,19 @@
-<html>
-  <head>
-    <title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Please login</h1>
-      <br>
-      <form method="POST">
-        <input type="text" placeholder="Username" name="username">
-         <input type="password" placeholder="Password" name="password">
-        <input type="submit">
-      </form>
-      <h3>{{ info }}</h3>
-    </div>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body bgcolor="orange">
+
+<form action="/form_login" method="post">
+  <h2></h2>Username:<br>
+  <input type="text" name='username'><br>
+  Password:<br>
+  <input  name='password' ><br><br>
+<input type="submit" value="Login">
+</form>
+<h1 >{{info}}</h1>
+
+</body>
 </html>
