@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 user = ["admin:password", "user:user1"]
 
-@app.route('/')
+@app.route('/', methods==['GET', 'POST'])
 def login():
-  return 
+  return render_template('login.html', info = 'Please Login')
 
 if __name__ == '__main__':
     app.run()
