@@ -10,7 +10,7 @@ def login():
     pwd = request.form["password"]
     user = {"admin:password", "user:user1"}
     if usr not in user and pwd not in user:
-      return redirect(url_for('/'), info = 'Wromg Credentials')
+      return render_template('login.html', info = 'Bad Credentials')
       
     else:
       return render_template('index.html')
