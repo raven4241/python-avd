@@ -2,7 +2,7 @@ from flask import Flask, request, session, redirect, url_for, render_template
  
 app = Flask(__name__)
 
-user = ["admin:password", "user:user1"]
+user = {"admin:password", "user:user1"}
   
 @app.route('/', methods=['GET', 'POST'])
 def login():
