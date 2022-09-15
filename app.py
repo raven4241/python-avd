@@ -1,18 +1,25 @@
-from flask import Flask, request, session, redirect, url_for, render_template
- 
+from flask import Flask,request,render_template
+import pickle
+
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/')
+def hello_world():
+    return render_template("login.html")
+database={'nachi':'123','james':'aac','karthik':'asdsf'}
+
+@app.route('/form_login',methods=['POST','GET'])
 def login():
-  return render_template('login.html', info = 'Please Login')
-  if request.method=='POST':
-    usr = request.form["username"]
-    pwd = request.form["password"]
-    users = {"admin:password", "user:user1"}
-    if usr not in users and pwd not in users:
-      return render_template('login.html', info = 'Bad Credentials')
+    name1=request.form['username']
+    pwd=request.form['password']
+    if name1 not in database:
+	    return render_template('login.html',info='Invalid User')
     else:
-      return render_template('index.html')
+        if database[name1]!=pwd:
+            return render_template('login.html',info='Invalid Password')
+        else:
+	         return render_template('home.html',name=name1)
 
 if __name__ == '__main__':
     app.run()
