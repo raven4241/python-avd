@@ -8,8 +8,8 @@ app = Flask(__name__)
 def hello_world():
     return render_template("login.html")
     
-database={'admin'}
-psd={'admin'}
+database={'atharva','aryan', 'vijay', 'smita'}
+psd={'avd@2004','aryan@2008', 'vijay@1973', 'smita@1980'}
 
 @app.route('/login',methods=['POST','GET'])
 def login():
