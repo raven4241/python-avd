@@ -37,6 +37,7 @@
 .main form input{
   height: 30px;
   border-radius: 10px;
+  width: 70%;
 }
 .bg{
   position: fixed;
