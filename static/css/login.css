@@ -25,7 +25,6 @@
   height: 75%;
 }
 .main form{
-  transform: -25% -50%;
   background: transparent;
   backdrop-filter: blur(25px);
   padding: 15px;
