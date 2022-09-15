@@ -8,7 +8,8 @@ app = Flask(__name__)
 def hello_world():
     return render_template("login.html")
     
-database={'admin':'123'}
+database={'admin'}
+psd={'admin'}
 
 @app.route('/login',methods=['POST','GET'])
 def login():
@@ -17,7 +18,7 @@ def login():
     if user not in database:
 	    return render_template('login.html',info='Invalid User')
     else:
-        if database[user]!=pwd:
+        if pwd not in psd:
             return render_template('login.html',info='Invalid Password')
         else:
 	         return render_template('index.html')
