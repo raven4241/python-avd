@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-</head>
-<body bgcolor="#90e5fa">
-
-<form action="/login" method="post">
-  <h2></h2>Username:<br>
-  <input type="text" name='username'><br>
-  Password:<br>
-  <input  name='password' ><br><br>
-<input type="submit" value="Login">
-</form>
-<h1 >{{info}}</h1>
-
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="./css/contact.css" type="text/css" media="all" />
+  </head>
+  <body class="body">
+    <video class="bg" src="./img/contact_background.mp4" poster="./img/poster.png" preload="none" autoplay muted loop>
+    </video>
+      <div class="main">
+        <form target="_blank" action="https://formsubmit.co/atharvadeore@proton.me" method="POST">
+          <span class="title">
+            Contact Me
+          </span>
+          <br />
+          <br />
+          <span class="content">
+            Name
+            <br />
+          <input class="input1" type="text" name="name" id="name" placeholder="Your Name" required />
+          <br />
+            Email
+          <br />
+          <input class="input1" type="text" name="email" id="email" placeholder="yourname@xyz.com" required/>
+          <br />
+          Suggestions
+          <br />
+          <input class="input2" type="text" name="message" id="info" placeholder="Type Here..." required/>
+          </span>
+          <br />
+          <br />
+          <button class="submit" type="submit">SUBMIT</button>
+        </form>
+      </div>
+  </body>
 </html>
