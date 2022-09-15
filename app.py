@@ -10,7 +10,7 @@ password = request.form['password']
 def login():
   return render_template('login.html', info = 'Please Login')
   if username not in user and password not in user:
-    redirect(url_for('/'))
+    return redirect(url_for('/'))
   else:
     return render_template('index.html')
 
