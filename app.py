@@ -11,7 +11,7 @@ def home():
 def login():
   if request.method=='POST':
     if request.form['username']!=admin and request.form['password']!=admin:
-      return render_template('login.html', info="Bad Credentials!")
+      return render_template('login.html')
     else:
       return render_template('index.html')
 
