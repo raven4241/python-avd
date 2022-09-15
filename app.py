@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template("login.html")
-database={'nachi':'123'}
+database={'admin':'123'}
 
 @app.route('/login',methods=['POST','GET'])
 def login():
@@ -19,7 +19,7 @@ def login():
         if database[user]!=pwd:
             return render_template('login.html',info='Invalid Password')
         else:
-	         return render_template('index.html',name=user)
+	         return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
