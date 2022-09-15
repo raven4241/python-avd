@@ -9,7 +9,10 @@ password = request.form['password']
 @app.route('/', methods==['GET', 'POST'])
 def login():
   return render_template('login.html', info = 'Please Login')
-  if 
+  if username not in user and password not in user:
+    redirect(url_for('/'))
+  else:
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
