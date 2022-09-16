@@ -1,27 +1,28 @@
-from flask import Flask,request,render_template
-import pickle
-
+from flask import Flask, request, session, redirect, url_for, render_template
+ 
 app = Flask(__name__)
 
-
+user = {"admin", "user"}
+password = {"admin", "user"}
+  
 @app.route('/')
-def hello_world():
-    return render_template("login.html")
-    
-database={'atharva','aryan', 'vijay', 'smita'}
-psd={'avd@2004','aryan@2008', 'vijay@1973', 'smita@1980'}
-
-@app.route('/login',methods=['POST','GET'])
+def home():
+  return render_template('login.html', info = 'Please Login')
+  
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    user=request.form['username']
-    pwd=request.form['password']
-    if user not in database:
-	    return render_template('login.html',info='Invalid User')
+  if request.method=='POST':
+    usr = request.form["username"]
+    pwd = request.form["password"]
+    if usr not in user or pwd not in password:
+      return render_template('login.html', info = "Bad Credentials")
     else:
-        if pwd not in psd:
-            return render_template('login.html',info='Invalid Password')
-        else:
-	         return render_template('index.html')
+      return render_template('index.html', wlcm = "Welcome Admin")
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+  if request.method=='POST':
+    return render_template('login.html', info = 'Logged Out')
 
 if __name__ == '__main__':
     app.run()
