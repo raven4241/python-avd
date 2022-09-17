@@ -29,15 +29,15 @@ def logout():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        profile = request.files['profile']
-        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+        file = request.files['file']
+        file.save(os.path.join(uploads_dir, secure_filename(file.filename)))
 
         for file in request.files.getlist('charts'):
             file.save(os.path.join(uploads_dir, secure_filename(file.name)))
 
         return redirect(url_for('upload'))
 
-    return render_template('upload.html')
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
