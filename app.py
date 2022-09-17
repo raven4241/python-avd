@@ -2,8 +2,8 @@ from flask import *
  
 app = Flask(__name__)
 
-user = {"admin", "user"}
-password = {"admin", "user"}
+user = {"admin"}
+password = {"avd@2004"}
   
 @app.route('/')
 def home():
