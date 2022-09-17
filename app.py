@@ -24,8 +24,6 @@ def login():
 def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
-    
-
 
 if __name__ == '__main__':
     app.run()
