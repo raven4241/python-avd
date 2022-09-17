@@ -30,7 +30,6 @@ def upload():
    if request.method=='POST':
       f = request.files['file']
       f.save(secure_filename(f.filename))
-      return 'File uploaded successfully'
       return render_template('index.html', info="File Upload Successful")
 
 if __name__ == '__main__':
