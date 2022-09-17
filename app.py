@@ -26,6 +26,9 @@ def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
 
+uploads_dir = os.path.join(app.instance_path, 'uploads')
+os.makedirs(uploads_dir, exists_ok=True)
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
