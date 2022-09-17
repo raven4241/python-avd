@@ -30,7 +30,7 @@ def upload():
    if request.method=='POST':
       f = request.files['file']
       f.save(secure_filename(f.filename))
-      return '%f uploaded successfully'
+      return 'File uploaded successfully'
 
 if __name__ == '__main__':
     app.run()
