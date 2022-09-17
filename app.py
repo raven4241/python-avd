@@ -27,7 +27,7 @@ def logout():
     return render_template('login.html', info = 'Logged Out')
 
 uploads_dir = os.path.join(app.instance_path, 'uploads')
-os.makedirs(uploads_dir, exists_ok=True)
+os.makedirs(uploads_dir)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
