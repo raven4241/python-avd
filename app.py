@@ -25,5 +25,12 @@ def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
 
+@app.route('/upload', methods = ['GET', 'POST'])
+def upload():
+   if request.method=='POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
+
 if __name__ == '__main__':
     app.run()
