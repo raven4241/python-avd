@@ -34,10 +34,8 @@ def upload():
     if request.method == 'POST':
         file = request.files['file']
         file.save(os.path.join(uploads_dir, secure_filename(file.filename)))
-
-        return redirect(url_for('upload'))
-
-    return render_template('index.html')
+        
+        return render_template('index.html', info="File Upload Successful")
 
 if __name__ == '__main__':
     app.run()
