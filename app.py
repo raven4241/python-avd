@@ -35,9 +35,6 @@ def upload():
         file = request.files['file']
         file.save(os.path.join(uploads_dir, secure_filename(file.filename)))
 
-        for file in request.files.getlist('charts'):
-            file.save(os.path.join(uploads_dir, secure_filename(file.name)))
-
         return redirect(url_for('upload'))
 
     return render_template('index.html')
