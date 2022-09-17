@@ -1,5 +1,6 @@
 from flask import *
 from werkzeug.utils import secure_filename
+import os
  
 app = Flask(__name__)
 
@@ -25,12 +26,18 @@ def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
 
-@app.route('/upload', methods = ['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
-   if request.method=='POST':
-      f = request.files['file']
-      f.save(secure_filename(f.filename))
-      return render_template('index.html', info="File Upload Successful")
+    if request.method == 'POST':
+        profile = request.files['profile']
+        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+
+        for file in request.files.getlist('charts'):
+            file.save(os.path.join(uploads_dir, secure_filename(file.name)))
+
+        return redirect(url_for('upload'))
+
+    return render_template('upload.html')
 
 if __name__ == '__main__':
     app.run()
