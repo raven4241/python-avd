@@ -25,7 +25,7 @@ def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
     
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/upload', methods = ['GET', 'POST'])
 def upload():
    if request.method == 'POST':
       f = request.files['file']
