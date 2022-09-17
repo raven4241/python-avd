@@ -1,6 +1,6 @@
+import os
 from flask import *
 from werkzeug.utils import secure_filename
-import os
  
 app = Flask(__name__)
 
