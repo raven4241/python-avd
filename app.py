@@ -26,7 +26,7 @@ def logout():
   if request.method=='POST':
     return render_template('login.html', info = 'Logged Out')
 
-uploads_dir = os.path.join('uploads')
+'''uploads_dir = os.path.join('uploads')
 if not os.path.exists('uploads'):
    os.makedirs('uploads')
 
@@ -36,7 +36,7 @@ def upload():
         file = request.files['file']
         file.save(os.path.join(uploads_dir, secure_filename(file.filename)))
         
-        return render_template('index.html', info="File Upload Successful")
+        return render_template('index.html', info="File Upload Successful")'''
 
 if __name__ == '__main__':
     app.run()
